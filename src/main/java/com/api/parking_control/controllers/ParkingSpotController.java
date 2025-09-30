@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -96,16 +95,6 @@ public class ParkingSpotController {
         if(!parkingSpotModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking Spot not found");
         }
-
-//        var parkingSpotModel = parkingSpotModelOptional.get();
-//        parkingSpotModel.setParkingSpotNumber(parkingSpotDto.getParkingSpotNumber());
-//        parkingSpotModel.setLicensePlateCar(parkingSpotDto.getLicensePlateCar());
-//        parkingSpotModel.setModelCar(parkingSpotDto.getModelCar());
-//        parkingSpotModel.setBrandCar(parkingSpotDto.getBrandCar());
-//        parkingSpotModel.setColorCar(parkingSpotDto.getColorCar());
-//        parkingSpotModel.setResponsibleName(parkingSpotDto.getResponsibleName());
-//        parkingSpotModel.setApartment(parkingSpotDto.getApartment());
-//        parkingSpotModel.setBlock(parkingSpotDto.getBlock());
 
         var parkingSpotModel = parkingSpotModelOptional.get();
         BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
